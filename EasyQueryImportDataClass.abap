@@ -88,8 +88,7 @@ CLASS z_cl_eq_data_import IMPLEMENTATION.
     lv_datatype = me->get_eq_grid_data_type( iv_query ).
     IF lv_datatype IS INITIAL.
       lv_bapi_ret-type = 'E'.
-      lv_bapi_ret-message = `Es konnte kein Datentyp zum Query` &&
-        iv_query && ` ermittelt werden.`.
+      lv_bapi_ret-message = `It could be determined no data type to ` && iv_query.
       APPEND lv_bapi_ret TO et_message_log.
       RETURN.
     ENDIF.
@@ -151,8 +150,8 @@ CLASS z_cl_eq_data_import IMPLEMENTATION.
           et_column_descr = lt_col_descr.
         ELSE.
           lv_bapi_ret-type = 'E'.
-          lv_bapi_ret-message = `Ein Fehler ist aufgetreten in ` &&
-            lv_funcname && ` im ` && sy-repid.
+          lv_bapi_ret-message = `An error occurred in ` &&
+            lv_funcname && ` in ` && sy-repid.
           APPEND lv_bapi_ret TO et_message_log.
         ENDIF.
       CATCH cx_root INTO lr_cx_root.
