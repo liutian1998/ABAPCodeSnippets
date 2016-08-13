@@ -61,10 +61,9 @@ ENDCLASS.
 CLASS z_cl_eq_data_import IMPLEMENTATION.
 
 
-  METHOD get_eq_data.
-************************************************************************
-* Gets data from an Easy Query
-************************************************************************
+  METHOD get_eq_data."--------------------------------------------------
+  "- Gets data from an Easy Query
+  "--------------------------------------------------------------------
 
     FIELD-SYMBOLS <eq_grid_data> TYPE STANDARD TABLE.
     FIELD-SYMBOLS <func_import_paramname> TYPE rseq_s_select_option.
@@ -165,11 +164,10 @@ CLASS z_cl_eq_data_import IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD get_eq_grid_data_type.
-************************************************************************
-* Gets the datatype from E_T_GRID_DATA from the function module
-* of an Easy Query
-************************************************************************
+  METHOD get_eq_grid_data_type."----------------------------------------
+  "- Gets the datatype from E_T_GRID_DATA from the function module
+  "- of an Easy Query
+  "---------------------------------------------------------------------
 
     DATA lv_funcname TYPE eu_lname.
     DATA lv_funcintf TYPE rsfbintfv.
@@ -209,14 +207,12 @@ CLASS z_cl_eq_data_import IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
 
-
   ENDMETHOD.
 
 
-  METHOD get_funcmod_to_eq.
-************************************************************************
-* Gets the name of the function module from an Easy Query
-************************************************************************
+  METHOD get_funcmod_to_eq."--------------------------------------------
+  "- Gets the name of the function module from an Easy Query
+  "---------------------------------------------------------------------
 
     CALL FUNCTION 'RSEQ_GET_EQRFC_NAME'
       EXPORTING
@@ -227,11 +223,10 @@ CLASS z_cl_eq_data_import IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD get_funcmod_imprt_params_to_eq.
-************************************************************************
-* Gets the names of the import variables of the function module
-* from an Easy Query
-************************************************************************
+  METHOD get_funcmod_imprt_params_to_eq."-------------------------------
+  "- Gets the names of the import variables of the function module
+  "- from an Easy Query
+  "---------------------------------------------------------------------
 
     DATA lv_funcname TYPE eu_lname.
     DATA lv_funcintf TYPE rsfbintfv.
@@ -267,7 +262,7 @@ CLASS z_cl_eq_data_import IMPLEMENTATION.
 ENDCLASS.
 
 
-*-An exmaple how to use it----------------------------------------------
+"-An exmaple how to use it----------------------------------------------
 *  FIELD-SYMBOLS <eq_grid_data> TYPE STANDARD TABLE.
 *  DATA lo_eq_imp TYPE REF TO z_cl_eq_data_import.
 *  DATA lt_selopt TYPE STANDARD TABLE OF str_selopt.
