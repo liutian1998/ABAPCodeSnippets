@@ -3,9 +3,11 @@
   Program zTest01.
 
     "-Variables---------------------------------------------------------
-      Data PDF Type Ref To zDebenuPDFLibraryLite.
-      Data OutText Type String Value ''.
-      Data rc Type Integer.
+      Data:
+        PDF Type Ref To zDebenuPDFLibraryLite,
+        OutText Type String,
+        rc Type Integer
+        .
 
     "-Main--------------------------------------------------------------
       OutText = 'Hello World from ABAP'.
